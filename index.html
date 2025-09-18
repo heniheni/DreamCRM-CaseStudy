@@ -8,6 +8,15 @@
     </head>
 
   <body>
+    <script type="module">
+      if (!import.meta.env.DEV) {
+        const repoBase = '/DreamCRM-CaseStudy/';
+        const { origin, pathname } = window.location;
+        if (!pathname.startsWith(repoBase)) {
+          window.location.replace(`${origin}${repoBase}`);
+        }
+      }
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
