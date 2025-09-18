@@ -4,8 +4,8 @@
   import path from 'path';
 
   export default defineConfig({
-    base: '/DreamCRM-CaseStudy/',
     plugins: [react()],
+    base: "/DreamCRM-CaseStudy/",
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
