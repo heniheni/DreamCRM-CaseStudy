@@ -9,8 +9,19 @@
       <link rel="stylesheet" crossorigin href="/DreamCRM-CaseStudy/assets/index-DMU6cdle.css">
     </head>
 
-    <body>
-      <div id="root"></div>
-    </body>
-  </html>
+  <body>
+    <script>
+      const host = window.location.hostname;
+      const isLocal = host === 'localhost' || host === '127.0.0.1';
+      const alreadyInDocs = window.location.pathname.includes('/docs/');
+      if (!isLocal && !alreadyInDocs) {
+        const path = window.location.pathname.endsWith('/')
+          ? window.location.pathname
+          : `${window.location.pathname}/`;
+        window.location.replace(`${path}docs/`);
+      }
+    </script>
+    <div id="root"></div>
+  </body>
+</html>
   
