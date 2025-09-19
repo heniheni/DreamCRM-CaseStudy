@@ -1,0 +1,20 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA-style fallback (safe even if you don’t use a router)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security and embed policy: allow embedding this site inside Wix only
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # X-Frame-Options ALLOW-FROM is deprecated and not widely supported; use CSP instead.
+    Content-Security-Policy = "frame-ancestors 'self' https://*.wix.com https://*.wixsite.com;"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "0"
+

@@ -1,0 +1,10 @@
+/*
+  # Allow embedding the site inside Wix (portfolio).
+  # If you later need stricter hostnames, replace with your exact Wix domain.
+  Content-Security-Policy: frame-ancestors 'self' https://*.wix.com https://*.wixsite.com
+
+  # Sensible security headers
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 0
+
