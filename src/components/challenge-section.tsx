@@ -1,12 +1,15 @@
 import { motion } from "motion/react";
 import { Card, CardContent } from "./ui/card";
-import { Quote, AlertTriangle } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function ChallengeSection() {
-  const userQuotes = [
-    "I don't want to manually update deal stages.",
-    "Momentum gets lost when insights are buried in threads.",
-    "CRM feels like work, not growth."
+  // Real feedback screenshots placed under `public/feedback/`.
+  // Drop your three images with these names (or adjust paths below):
+  const feedbackImages = [
+    "/feedback/feedback-1.png",
+    "/feedback/feedback-2.png",
+    "/feedback/feedback-3.png",
   ];
 
   return (
@@ -36,7 +39,7 @@ export function ChallengeSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {userQuotes.map((quote, index) => (
+          {feedbackImages.map((src, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -45,23 +48,14 @@ export function ChallengeSection() {
               viewport={{ once: true }}
               className="group"
             >
-              <Card className="h-full hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 border-border/50 bg-gradient-to-br from-card to-accent/5">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 mt-1">
-                      <Quote className="w-6 h-6 text-primary/60" />
-                    </div>
-                    <div>
-                      <p className="italic text-muted-foreground text-lg leading-relaxed">
-                        "{quote}"
-                      </p>
-                      <div className="mt-4 flex items-center gap-2">
-                        <div className="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
-                          <div className="w-4 h-4 bg-primary/20 rounded-full"></div>
-                        </div>
-                        <span className="text-sm text-muted-foreground">Sales Professional</span>
-                      </div>
-                    </div>
+              <Card className="h-full hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 border-border/50 bg-card/95">
+                <CardContent className="p-6">
+                  <div className="rounded-2xl overflow-hidden border bg-white">
+                    <ImageWithFallback
+                      src={src}
+                      alt={`User feedback ${index + 1}`}
+                      className="w-full h-44 object-cover"
+                    />
                   </div>
                 </CardContent>
               </Card>
