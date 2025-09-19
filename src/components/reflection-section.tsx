@@ -104,13 +104,27 @@ export function ReflectionSection() {
                 <span className="text-sm font-medium">Available for new opportunities</span>
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               </div>
-              
-              <div className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
-                <span className="text-sm">Let's connect</span>
-                <ArrowRight className="w-4 h-4" />
-              </div>
             </div>
           </div>
+        </motion.div>
+        
+        {/* Next Work CTA at very end of case study (no new section) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
+          <p className="text-xl mb-4 opacity-90">Next Work</p>
+          <a
+            href="https://www.henigb.com/dlab-dashboard"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-amber-500 text-black text-sm font-medium shadow-lg border border-transparent hover:bg-white hover:border-amber-500 hover:text-black transition-colors"
+          >
+            Impact Dashboard
+          </a>
         </motion.div>
       </div>
     </section>
